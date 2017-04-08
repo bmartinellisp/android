@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Super Mãe</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--Criados -->
+    <string name="sugestoes">Sugestões</string>
+</resources>
