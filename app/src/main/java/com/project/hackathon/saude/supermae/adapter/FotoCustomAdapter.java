@@ -39,7 +39,6 @@ public class FotoCustomAdapter extends RecyclerView.Adapter<FotoCustomAdapter.My
         }
     }
 
-
     public FotoCustomAdapter(Context mContext, List<Foto> newsfeedList) {
         this.mContext = mContext;
         this.newsfeedList = newsfeedList;

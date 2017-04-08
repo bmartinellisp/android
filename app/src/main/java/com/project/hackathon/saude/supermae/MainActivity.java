@@ -31,7 +31,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.hackathon.saude.supermae.adapter.FotoCustomAdapter;
+import com.project.hackathon.saude.supermae.adapter.RankingCustomAdapter;
 import com.project.hackathon.saude.supermae.model.Foto;
+import com.project.hackathon.saude.supermae.model.Ranking;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,19 +43,9 @@ import java.util.Timer;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //Properties
     private ViewPager mViewPager;
-    private FloatingActionButton fabReuniao;
-    private FloatingActionButton fabUser;
     static SectionsPagerAdapter mSectionsPagerAdapter;
-    static int selectedTab;
     DrawerLayout drawer;
-
-
-    //Dados do membro Logado
-    private ImageView headerUserImage;
-    private TextView headerUserName;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +59,6 @@ public class MainActivity extends AppCompatActivity
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -142,7 +133,6 @@ public class MainActivity extends AppCompatActivity
             return fragment;
         }
 
-
         @Override
         public void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
@@ -153,11 +143,8 @@ public class MainActivity extends AppCompatActivity
             super.onViewStateRestored(savedInstanceState);
         }
 
-
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView;
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
@@ -188,6 +175,21 @@ public class MainActivity extends AppCompatActivity
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_ranking, container, false);
+
+                    ListView listViewRanking;
+                    listViewRanking = (ListView) rootView.findViewById(R.id.listRanking);
+
+                    ArrayList<Ranking> rankingList;
+                    rankingList = new ArrayList<>();
+                    rankingList.add(new Ranking( 1, 1, "Maria Maria",R.drawable.mae1));
+                    rankingList.add(new Ranking( 2, 2, "Marcia Dias",R.drawable.mae2));
+                    rankingList.add(new Ranking( 3, 3, "Fernanda Lima",R.drawable.mae3));
+                    rankingList.add(new Ranking( 4, 4, "Samara Góes",R.drawable.mae2));
+                    rankingList.add(new Ranking( 5, 5, "Milene Souza",R.drawable.mae3));
+                    RankingCustomAdapter rankingCustomAdapter;
+                    rankingCustomAdapter = new RankingCustomAdapter(rankingList, getContext());
+
+                    listViewRanking.setAdapter(rankingCustomAdapter);
                     break;
                 default:
                     rootView = inflater.inflate(R.layout.fragment_menu, container, false);
@@ -210,7 +212,6 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public int getCount() {
-
             return 3;
         }
 
@@ -227,6 +228,5 @@ public class MainActivity extends AppCompatActivity
             return null;
         }
     }
-
 }
 
