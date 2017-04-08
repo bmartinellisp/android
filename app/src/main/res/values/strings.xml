@@ -10,7 +10,9 @@
     <string name="medicamentos">Medicamentos</string>
     <string name="chat_mamaes">Chat Mamães</string>
     <string name="assistente">Assistente</string>
-
+    <string name="logar">Entrar</string>
+    <string name="title_activity_consulta">ConsultaActivity</string>
+    <string name="title_activity_medicamento">MedicamentoActivity</string>
 
 
 </resources>

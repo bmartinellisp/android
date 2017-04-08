@@ -34,7 +34,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
-                android:textColor="@color/title_card"
+                android:textColor="@color/colorAccent"
                 android:textSize="15dp" />
 
             <TextView

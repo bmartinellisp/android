@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,20 +14,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.project.hackathon.saude.supermae.adapter.FotoCustomAdapter;
 import com.project.hackathon.saude.supermae.adapter.RankingCustomAdapter;
@@ -36,16 +34,19 @@ import com.project.hackathon.saude.supermae.model.Foto;
 import com.project.hackathon.saude.supermae.model.Ranking;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Properties
     private ViewPager mViewPager;
     static SectionsPagerAdapter mSectionsPagerAdapter;
     DrawerLayout drawer;
+
+    //Dados do membro Logado
+    private ImageView headerUserImage;
+    private TextView headerUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +110,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.configuracoes) {
-//            Intent i = new Intent(this, ConfiguracoesActivity.class);
-//            startActivity(i);
+            Intent i = new Intent(this, ConfiguracoesActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -145,11 +146,31 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView;
+            final View rootView;
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_menu, container, false);
+
+                    Button btn_medicamentos = (Button) rootView.findViewById(R.id.btn_medicamentos);
+                    Button btn_consultas    = (Button) rootView.findViewById(R.id.btn_consultas);
+
+                    btn_medicamentos.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(rootView.getContext(), MedicamentoActivity.class);
+                            startActivity(i);
+                        }
+                    });
+
+                    btn_consultas.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(rootView.getContext(), ConsultaActivity.class);
+                            startActivity(i);
+                        }
+                    });
+
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_foto, container, false);
@@ -181,11 +202,11 @@ public class MainActivity extends AppCompatActivity
 
                     ArrayList<Ranking> rankingList;
                     rankingList = new ArrayList<>();
-                    rankingList.add(new Ranking( 1, 1, "Maria Maria",R.drawable.mae1));
-                    rankingList.add(new Ranking( 2, 2, "Marcia Dias",R.drawable.mae2));
-                    rankingList.add(new Ranking( 3, 3, "Fernanda Lima",R.drawable.mae3));
-                    rankingList.add(new Ranking( 4, 4, "Samara Góes",R.drawable.mae2));
-                    rankingList.add(new Ranking( 5, 5, "Milene Souza",R.drawable.mae3));
+                    rankingList.add(new Ranking(1, 1, "Maria Maria", R.drawable.mae1));
+                    rankingList.add(new Ranking(2, 2, "Marcia Dias", R.drawable.mae2));
+                    rankingList.add(new Ranking(3, 3, "Fernanda Lima", R.drawable.mae3));
+                    rankingList.add(new Ranking(4, 4, "Samara Góes", R.drawable.mae2));
+                    rankingList.add(new Ranking(5, 5, "Milene Souza", R.drawable.mae3));
                     RankingCustomAdapter rankingCustomAdapter;
                     rankingCustomAdapter = new RankingCustomAdapter(rankingList, getContext());
 

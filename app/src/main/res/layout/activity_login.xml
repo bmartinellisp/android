@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_login"
+    android:clickable="false"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    tools:context="com.project.hackathon.saude.supermae.LoginActivity">
+
+    <ImageView
+        android:layout_marginBottom="30dp"
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:foregroundGravity="center"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        />
+
+    <EditText
+        android:id="@+id/cns"
+        android:layout_below="@id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/button_margin"
+        android:hint="CNS"
+        />
+
+    <EditText
+        android:id="@+id/cpf"
+        android:layout_below="@id/cns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/button_margin"
+        android:hint="CPF"
+        />
+
+    <Button
+        android:layout_below="@id/cpf"
+        android:id="@+id/btn_login"
+        android:padding="@dimen/button_padding"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:text="@string/logar"/>
+
+</RelativeLayout>

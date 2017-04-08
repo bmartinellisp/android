@@ -11,6 +11,9 @@
     <dimen name="button_margin">10dp</dimen>
     <dimen name="button_padding">10dp</dimen>
 
+    <dimen name="edit_text_margin">20dp</dimen>
+    <dimen name="edit_text_padding">20dp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
 
 </resources>
