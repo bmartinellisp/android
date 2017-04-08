@@ -30,6 +30,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.hackathon.saude.supermae.adapter.FotoCustomAdapter;
+import com.project.hackathon.saude.supermae.model.Foto;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,6 +80,13 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
@@ -156,6 +166,25 @@ public class MainActivity extends AppCompatActivity
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_foto, container, false);
+
+                    RecyclerView recyclerView;
+                    FotoCustomAdapter adapter;
+                    List<Foto> fotoList;
+
+                    recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+
+                    RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+                    recyclerView.setLayoutManager(mLayoutManager);
+                    fotoList = new ArrayList<>();
+
+                    fotoList.add(new Foto("1", "Meu primeiro mês", "1", R.drawable.mae1));
+                    fotoList.add(new Foto("1", "Meu segundo mês", "1", R.drawable.mae2));
+                    fotoList.add(new Foto("1", "Meu terceiro mês", "1", R.drawable.mae3));
+                    fotoList.add(new Foto("1", "Meu quarto mês", "1", R.drawable.mae4));
+
+                    adapter = new FotoCustomAdapter(getActivity(), fotoList);
+                    recyclerView.setAdapter(adapter);
+
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_ranking, container, false);

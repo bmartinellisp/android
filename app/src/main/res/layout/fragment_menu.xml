@@ -3,4 +3,47 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/score"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:padding="@dimen/button_padding"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:text="@string/medicamentos"/>
+
+    <Button
+        android:padding="@dimen/button_padding"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:text="@string/chat_mamaes"/>
+
+    <Button
+        android:padding="@dimen/button_padding"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:text="@string/consultas"/>
+
+    <Button
+        android:padding="@dimen/button_padding"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:text="@string/assistente"/>
+
 </LinearLayout>
