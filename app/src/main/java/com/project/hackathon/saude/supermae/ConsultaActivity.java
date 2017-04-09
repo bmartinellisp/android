@@ -3,27 +3,21 @@ package com.project.hackathon.saude.supermae;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.project.hackathon.saude.supermae.adapter.ConsultaCustomAdapter;
-import com.project.hackathon.saude.supermae.handler.DatabaseHandler;
-import com.project.hackathon.saude.supermae.helper.DatePickerFragment;
-import com.project.hackathon.saude.supermae.model.Consulta;
+import com.project.hackathon.saude.supermae.handler.DatabaseHandlerConsulta;
 import com.project.hackathon.saude.supermae.model.Consulta;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ConsultaActivity extends AppCompatActivity {
 
-    DatabaseHandler db;
+    DatabaseHandlerConsulta db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +40,7 @@ public class ConsultaActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        db = new DatabaseHandler(this);
+        db = new DatabaseHandlerConsulta(this);
 
 
 
@@ -60,11 +54,6 @@ public class ConsultaActivity extends AppCompatActivity {
 
         listViewConsulta.setAdapter(rankingCustomAdapter);
 
-        for (Consulta cn : consulta) {
-            String log = "Código Posto: " + cn.getCodigoPosto();
-            // Writing Contacts to log
-            Log.d("Name: ", log);
 
-        }
     }
 }

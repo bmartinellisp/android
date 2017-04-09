@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Matheus on 08/04/2017.
  */
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class DatabaseHandlerConsulta extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
@@ -35,7 +35,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String NUMERO = "numero";
     private static final String UF = "uf";
 
-    public DatabaseHandler(Context context) {
+    public DatabaseHandlerConsulta(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

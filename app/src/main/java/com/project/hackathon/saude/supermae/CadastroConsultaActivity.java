@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.project.hackathon.saude.supermae.handler.DatabaseHandler;
+import com.project.hackathon.saude.supermae.handler.DatabaseHandlerConsulta;
 import com.project.hackathon.saude.supermae.helper.CarregarEnderecoTask;
 import com.project.hackathon.saude.supermae.helper.DatePickerFragment;
 import com.project.hackathon.saude.supermae.helper.FormularioConsulta;
@@ -29,7 +29,7 @@ public class CadastroConsultaActivity extends AppCompatActivity {
 
     private Button btn_buscar_cep, btn_cadastrar;
     private FormularioConsulta helperFormularioConsulta;
-    private DatabaseHandler db;
+    private DatabaseHandlerConsulta db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class CadastroConsultaActivity extends AppCompatActivity {
         });
 
 
-        db = new DatabaseHandler(this);
+        db = new DatabaseHandlerConsulta(this);
 
         Button btn_cadastrar = (Button) findViewById(R.id.btn_cadastrar);
         btn_cadastrar.setOnClickListener(new View.OnClickListener() {

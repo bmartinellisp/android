@@ -28,10 +28,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.project.hackathon.saude.supermae.adapter.CarouselAdapter;
 import com.project.hackathon.saude.supermae.adapter.FotoCustomAdapter;
 import com.project.hackathon.saude.supermae.adapter.RankingCustomAdapter;
-import com.project.hackathon.saude.supermae.helper.CarouselEffectTransformer;
 import com.project.hackathon.saude.supermae.model.Foto;
 import com.project.hackathon.saude.supermae.model.Ranking;
 
@@ -49,9 +47,6 @@ public class MainActivity extends AppCompatActivity
     //Dados do membro Logado
     private ImageView headerUserImage;
     private TextView headerUserName;
-
-    public static final int ADAPTER_TYPE_TOP = 0;
-    public static final int ADAPTER_TYPE_BOTTOM = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,50 +153,6 @@ public class MainActivity extends AppCompatActivity
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_menu, container, false);
-
-                    int[] listItems = {R.drawable.img_carousel1, R.drawable.img_carousel2, R.drawable.img_carousel3};
-
-                    viewpagerTop = (ViewPager) rootView.findViewById(R.id.viewpagerTop);
-                    viewPagerBackground = (ViewPager) rootView.findViewById(R.id.viewPagerbackground);
-
-                    viewpagerTop.setClipChildren(false);
-                    //viewpagerTop.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.pager_margin));
-                    viewpagerTop.setOffscreenPageLimit(3);
-                    viewpagerTop.setPageTransformer(false, new CarouselEffectTransformer(this.getContext())); // Set transformer
-
-                    // Set Top ViewPager Adapter
-                    CarouselAdapter carouselAdapter = new CarouselAdapter(this.getContext(), listItems, ADAPTER_TYPE_TOP);
-                    viewpagerTop.setAdapter(carouselAdapter);
-
-                    // Set Background ViewPager Adapter
-                    CarouselAdapter adapterBackground = new CarouselAdapter(this.getContext(), listItems, ADAPTER_TYPE_BOTTOM);
-                    viewPagerBackground.setAdapter(adapterBackground);
-
-                    viewpagerTop.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-                        private int index = 0;
-
-                        @Override
-                        public void onPageSelected(int position) {
-                            index = position;
-
-                        }
-
-                        @Override
-                        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                            int width = viewPagerBackground.getWidth();
-                            viewPagerBackground.scrollTo((int) (width * position + width * positionOffset), 0);
-                        }
-
-                        @Override
-                        public void onPageScrollStateChanged(int state) {
-                            if (state == ViewPager.SCROLL_STATE_IDLE) {
-                                viewPagerBackground.setCurrentItem(index);
-                            }
-
-                        }
-                    });
-
 
                     Button btn_medicamentos = (Button) rootView.findViewById(R.id.btn_medicamentos);
                     Button btn_consultas = (Button) rootView.findViewById(R.id.btn_consultas);

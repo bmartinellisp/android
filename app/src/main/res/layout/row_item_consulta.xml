@@ -8,12 +8,12 @@
     android:weightSum="5">
 
     <ImageView
-        android:id="@+id/img_reuniao"
+        android:id="@+id/img_consulta"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:src="@android:drawable/ic_menu_agenda"/>
+        android:src="@drawable/consulta"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

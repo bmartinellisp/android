@@ -15,4 +15,8 @@
     <string name="title_activity_medicamento">MedicamentoActivity</string>
     <string name="buscar_cep">Buscar CEP</string>
     <string name="cadastrar">Cadastrar</string>
+
+    <string name="cadastroMedicamento">Cadastro de Medicamento</string>
+    <string name="cadastroConsulta">Cadastro de Consulta</string>
+
 </resources>

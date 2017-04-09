@@ -8,4 +8,11 @@
     tools:context="com.project.hackathon.saude.supermae.MedicamentoActivity"
     tools:showIn="@layout/activity_medicamento">
 
+    <ListView
+        android:id="@+id/listMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+
 </android.support.constraint.ConstraintLayout>
