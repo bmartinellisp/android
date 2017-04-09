@@ -3,9 +3,11 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:layout_gravity="center"
 tools:context="com.project.hackathon.saude.supermae.CadastroMedicamentoActivity">
 
 <LinearLayout
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="15dp"
@@ -25,7 +27,7 @@ tools:context="com.project.hackathon.saude.supermae.CadastroMedicamentoActivity"
 
         <EditText
             android:id="@+id/ed_data"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="Data" />
 
@@ -33,7 +35,7 @@ tools:context="com.project.hackathon.saude.supermae.CadastroMedicamentoActivity"
             android:id="@+id/ed_hora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Hora." />
+            android:hint="Hora" />
 
     </LinearLayout>
 

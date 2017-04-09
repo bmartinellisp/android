@@ -84,8 +84,8 @@ public class DatabaseHandlerMedicamento extends SQLiteOpenHelper {
             do {
                 Medicamento medicamento = new Medicamento();
                 medicamento.setData(cursor.getString(0));
-                medicamento.setHora(cursor.getString(0));
-                medicamento.setNome(cursor.getString(0));
+                medicamento.setHora(cursor.getString(1));
+                medicamento.setNome(cursor.getString(2));
 
                 // Adding medicamento to list
                 medicamentoList.add(medicamento);

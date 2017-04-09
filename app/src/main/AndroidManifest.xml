@@ -51,13 +51,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CadastroConsultaActivity"
             android:label="@string/cadastroConsulta"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"></activity>
 
         <activity android:name=".CadastroMedicamentoActivity"
             android:label="@string/cadastroMedicamento"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

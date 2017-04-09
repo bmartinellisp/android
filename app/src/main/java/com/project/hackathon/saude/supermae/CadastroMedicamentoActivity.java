@@ -59,7 +59,6 @@ public class CadastroMedicamentoActivity extends AppCompatActivity {
                 String tx_ed_hora = ed_hora.getText().toString();
                 String tx_ed_nome = ed_nome.getText().toString();
 
-
                 db.addMedicamento(new Medicamento(tx_ed_data, tx_ed_hora, tx_ed_nome));
                 finish();
             }

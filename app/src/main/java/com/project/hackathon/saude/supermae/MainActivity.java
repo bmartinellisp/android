@@ -1,6 +1,8 @@
 package com.project.hackathon.saude.supermae;
 
+import android.content.ContentUris;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity
 
                     Button btn_medicamentos = (Button) rootView.findViewById(R.id.btn_medicamentos);
                     Button btn_consultas = (Button) rootView.findViewById(R.id.btn_consultas);
+                    Button btn_assistente  = (Button) rootView.findViewById(R.id.btn_assistente);
 
                     btn_medicamentos.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -170,6 +173,14 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(View v) {
                             Intent i = new Intent(rootView.getContext(), ConsultaActivity.class);
                             startActivity(i);
+                        }
+                    });
+
+                    btn_assistente.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.m.me/veronicasupermae"));
+                            startActivity(intent);
                         }
                     });
 
