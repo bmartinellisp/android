@@ -1,17 +1,21 @@
 package com.project.hackathon.saude.supermae;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 import com.project.hackathon.saude.supermae.handler.DatabaseHandlerConsulta;
 import com.project.hackathon.saude.supermae.helper.CarregarEnderecoTask;
 import com.project.hackathon.saude.supermae.helper.DatePickerFragment;
 import com.project.hackathon.saude.supermae.helper.FormularioConsulta;
 import com.project.hackathon.saude.supermae.model.Consulta;
+
+import java.util.Calendar;
 
 public class CadastroConsultaActivity extends AppCompatActivity {
 
@@ -50,6 +54,24 @@ public class CadastroConsultaActivity extends AppCompatActivity {
         ed_estado = (EditText) findViewById(R.id.ed_estado);
         ed_ufEditText = (EditText) findViewById(R.id.ed_uf);
 
+        ed_campo_horario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(CadastroConsultaActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        ed_campo_horario.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+            }
+        });
 
         ed_data.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

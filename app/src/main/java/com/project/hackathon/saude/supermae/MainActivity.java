@@ -1,6 +1,5 @@
 package com.project.hackathon.saude.supermae;
 
-import android.content.ContentUris;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -198,6 +197,7 @@ public class MainActivity extends AppCompatActivity
                     recyclerView.setLayoutManager(mLayoutManager);
                     fotoList = new ArrayList<>();
 
+                    fotoList.add(new Foto("1", "", "", R.drawable.picture));
                     fotoList.add(new Foto("1", "Meu primeiro mês", "1", R.drawable.mae1));
                     fotoList.add(new Foto("1", "Meu segundo mês", "1", R.drawable.mae2));
                     fotoList.add(new Foto("1", "Meu terceiro mês", "1", R.drawable.mae3));

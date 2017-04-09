@@ -5,6 +5,7 @@
             android:id="@+id/configuracoes"
             android:icon="@drawable/configuracoes"
             android:title="@string/configuracoes" />
+
     </group>
 
 

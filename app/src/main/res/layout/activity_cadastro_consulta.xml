@@ -26,7 +26,7 @@
 
             <EditText
                 android:id="@+id/ed_campo_horario"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:hint="Horário" />
 
@@ -34,7 +34,7 @@
                 android:id="@+id/ed_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Data da consulta" />
+                android:hint="Data" />
 
         </LinearLayout>
 
@@ -58,6 +58,7 @@
 
             <EditText
                 android:id="@+id/ed_cep"
+                android:layout_marginTop="10dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:hint="CEP" />
@@ -79,7 +80,7 @@
 
             <EditText
                 android:id="@+id/ed_logradouro"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:hint="Logradouro" />
 
