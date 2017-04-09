@@ -13,6 +13,6 @@
     <string name="logar">Entrar</string>
     <string name="title_activity_consulta">ConsultaActivity</string>
     <string name="title_activity_medicamento">MedicamentoActivity</string>
-
-
+    <string name="buscar_cep">Buscar CEP</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>
