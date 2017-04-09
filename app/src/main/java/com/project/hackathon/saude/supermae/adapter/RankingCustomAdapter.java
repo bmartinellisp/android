@@ -85,7 +85,7 @@ public class RankingCustomAdapter extends ArrayAdapter<Ranking> implements View.
         result.startAnimation(animation);
         lastPosition = position;
 
-        viewHolder.img_mamae.setImageResource(R.drawable.mae1);
+        viewHolder.img_mamae.setImageResource(ranking.getImgMae());
 
         viewHolder.tv_posicao.setText("" + ranking.getPosicao());
         viewHolder.tv_posicao.setTypeface(null, Typeface.BOLD);

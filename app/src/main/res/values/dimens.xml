@@ -14,6 +14,9 @@
     <dimen name="edit_text_margin">20dp</dimen>
     <dimen name="edit_text_padding">20dp</dimen>
 
+    <dimen name="pager_margin">0dp</dimen>
+    <dimen name="viewPagerMargin">0dp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
 
 </resources>

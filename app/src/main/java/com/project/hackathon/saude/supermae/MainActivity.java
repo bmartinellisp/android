@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -27,9 +26,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.project.hackathon.saude.supermae.adapter.CarouselAdapter;
 import com.project.hackathon.saude.supermae.adapter.FotoCustomAdapter;
 import com.project.hackathon.saude.supermae.adapter.RankingCustomAdapter;
+import com.project.hackathon.saude.supermae.helper.CarouselEffectTransformer;
 import com.project.hackathon.saude.supermae.model.Foto;
 import com.project.hackathon.saude.supermae.model.Ranking;
 
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity
     //Dados do membro Logado
     private ImageView headerUserImage;
     private TextView headerUserName;
+
+    public static final int ADAPTER_TYPE_TOP = 0;
+    public static final int ADAPTER_TYPE_BOTTOM = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +149,8 @@ public class MainActivity extends AppCompatActivity
             super.onViewStateRestored(savedInstanceState);
         }
 
+        ViewPager viewpagerTop, viewPagerBackground;
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View rootView;
@@ -152,8 +159,52 @@ public class MainActivity extends AppCompatActivity
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
+                    int[] listItems = {R.drawable.img_carousel1, R.drawable.img_carousel2, R.drawable.img_carousel3};
+
+                    viewpagerTop = (ViewPager) rootView.findViewById(R.id.viewpagerTop);
+                    viewPagerBackground = (ViewPager) rootView.findViewById(R.id.viewPagerbackground);
+
+                    viewpagerTop.setClipChildren(false);
+                    //viewpagerTop.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.pager_margin));
+                    viewpagerTop.setOffscreenPageLimit(3);
+                    viewpagerTop.setPageTransformer(false, new CarouselEffectTransformer(this.getContext())); // Set transformer
+
+                    // Set Top ViewPager Adapter
+                    CarouselAdapter carouselAdapter = new CarouselAdapter(this.getContext(), listItems, ADAPTER_TYPE_TOP);
+                    viewpagerTop.setAdapter(carouselAdapter);
+
+                    // Set Background ViewPager Adapter
+                    CarouselAdapter adapterBackground = new CarouselAdapter(this.getContext(), listItems, ADAPTER_TYPE_BOTTOM);
+                    viewPagerBackground.setAdapter(adapterBackground);
+
+                    viewpagerTop.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                        private int index = 0;
+
+                        @Override
+                        public void onPageSelected(int position) {
+                            index = position;
+
+                        }
+
+                        @Override
+                        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                            int width = viewPagerBackground.getWidth();
+                            viewPagerBackground.scrollTo((int) (width * position + width * positionOffset), 0);
+                        }
+
+                        @Override
+                        public void onPageScrollStateChanged(int state) {
+                            if (state == ViewPager.SCROLL_STATE_IDLE) {
+                                viewPagerBackground.setCurrentItem(index);
+                            }
+
+                        }
+                    });
+
+
                     Button btn_medicamentos = (Button) rootView.findViewById(R.id.btn_medicamentos);
-                    Button btn_consultas    = (Button) rootView.findViewById(R.id.btn_consultas);
+                    Button btn_consultas = (Button) rootView.findViewById(R.id.btn_consultas);
 
                     btn_medicamentos.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -189,6 +240,8 @@ public class MainActivity extends AppCompatActivity
                     fotoList.add(new Foto("1", "Meu segundo mês", "1", R.drawable.mae2));
                     fotoList.add(new Foto("1", "Meu terceiro mês", "1", R.drawable.mae3));
                     fotoList.add(new Foto("1", "Meu quarto mês", "1", R.drawable.mae4));
+                    fotoList.add(new Foto("1", "Meu quinto mês", "1", R.drawable.mae5));
+                    fotoList.add(new Foto("1", "Meu sexto mês", "1", R.drawable.mae1));
 
                     adapter = new FotoCustomAdapter(getActivity(), fotoList);
                     recyclerView.setAdapter(adapter);
@@ -202,11 +255,17 @@ public class MainActivity extends AppCompatActivity
 
                     ArrayList<Ranking> rankingList;
                     rankingList = new ArrayList<>();
-                    rankingList.add(new Ranking(1, 1, "Maria Maria", R.drawable.mae1));
-                    rankingList.add(new Ranking(2, 2, "Marcia Dias", R.drawable.mae2));
-                    rankingList.add(new Ranking(3, 3, "Fernanda Lima", R.drawable.mae3));
-                    rankingList.add(new Ranking(4, 4, "Samara Góes", R.drawable.mae2));
-                    rankingList.add(new Ranking(5, 5, "Milene Souza", R.drawable.mae3));
+                    rankingList.add(new Ranking(1, 10, "Mamãe Beth", R.drawable.group_27));
+                    rankingList.add(new Ranking(1, 9,  "Mamãe Bernadete", R.drawable.group_28));
+                    rankingList.add(new Ranking(1, 8,  "Mamãe Maria", R.drawable.group_29));
+                    rankingList.add(new Ranking(1, 7,  "Mamãe Nazarela", R.drawable.group_30));
+                    rankingList.add(new Ranking(1, 6,  "Mamãe Antonia", R.drawable.group_31));
+                    rankingList.add(new Ranking(1, 5,  "Mamãe Mariana", R.drawable.group_32));
+                    rankingList.add(new Ranking(1, 4,  "Mamãe Jessica", R.drawable.group_33));
+                    rankingList.add(new Ranking(1, 3,  "Mamãe Ana", R.drawable.group_34));
+                    rankingList.add(new Ranking(1, 2,  "Mamãe Lucia", R.drawable.group_35));
+                    rankingList.add(new Ranking(1, 1,  "Mamãe Fatima", R.drawable.group_35));
+
                     RankingCustomAdapter rankingCustomAdapter;
                     rankingCustomAdapter = new RankingCustomAdapter(rankingList, getContext());
 
@@ -218,7 +277,20 @@ public class MainActivity extends AppCompatActivity
             }
             return rootView;
         }
+
+
+        public void clickEvent(View view) {
+            switch (view.getId()) {
+                case R.id.linMain:
+                    if (view.getTag() != null) {
+                        int poisition = Integer.parseInt(view.getTag().toString());
+                        Toast.makeText(this.getContext(), "Poistion: " + poisition, Toast.LENGTH_LONG).show();
+                    }
+                    break;
+            }
+        }
     }
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

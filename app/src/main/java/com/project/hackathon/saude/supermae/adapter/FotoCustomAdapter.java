@@ -56,7 +56,7 @@ public class FotoCustomAdapter extends RecyclerView.Adapter<FotoCustomAdapter.My
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         foto =  newsfeedList.get(position);
         holder.title.setText(foto.getNome());
-        holder.count.setText("Info : "  + foto.getNome());
+        holder.count.setText(""  + foto.getNome());
         //holder.overflow.setImageResource(R.drawable.three_dots);
         holder.ll_card_newsfeed.setOnClickListener(new View.OnClickListener() {
             @Override

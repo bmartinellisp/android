@@ -24,4 +24,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <item name="colorBackground">@color/colorPrimaryDark</item>
+        <item name="actionOverflowButtonStyle">@color/colorAccent</item>
+        <item name="drawerArrowStyle">@color/colorAccent</item>
+    </style>
+
 </resources>
