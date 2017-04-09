@@ -4,7 +4,7 @@
         <item
             android:id="@+id/configuracoes"
             android:icon="@drawable/configuracoes"
-            android:title="Configurações" />
+            android:title="@string/configuracoes" />
     </group>
 
 

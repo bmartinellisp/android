@@ -96,5 +96,4 @@ public class DatabaseHandlerMedicamento extends SQLiteOpenHelper {
         return medicamentoList;
     }
 
-
 }

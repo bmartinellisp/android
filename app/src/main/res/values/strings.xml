@@ -18,5 +18,18 @@
 
     <string name="cadastroMedicamento">Cadastro de Medicamento</string>
     <string name="cadastroConsulta">Cadastro de Consulta</string>
+    <string name="configuracoes">Informações</string>
+
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="primeira_gestacao">Seu primeiro filho?</string>
+    <string name="qtde_cesarias">Já fez cesária? Se sim, quantas?</string>
+    <string name="semana_gestacao">Está em qual semana?</string>
+    <string name="posicao_feto">Qual a posição do feto?</string>
+
+    <string name="qtde_filhos">Qtde. de filhos na barriga?</string>
+    <string name="codigo_posto">Código do posto?</string>
+    <string name="alterar">Alterar</string>
+
 
 </resources>

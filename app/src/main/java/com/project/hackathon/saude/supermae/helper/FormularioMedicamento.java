@@ -63,9 +63,5 @@ public class FormularioMedicamento {
 
         medicamento = new Medicamento();
     }
-
-
-
-
 }
 

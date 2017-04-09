@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:name=".ConfiguracoesActivity"
-            android:label="@string/app_name"
+            android:label="@string/configuracoes"
             android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"

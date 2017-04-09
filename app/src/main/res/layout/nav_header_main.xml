@@ -43,7 +43,7 @@
                 android:id="@+id/nav_header_main_tv_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Olá, Grávida." />
+                android:text="Olá, Mãe." />
 
             <TextView
                 android:textColor="#FFFFFF"

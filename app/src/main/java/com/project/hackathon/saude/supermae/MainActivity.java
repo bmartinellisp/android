@@ -217,16 +217,16 @@ public class MainActivity extends AppCompatActivity
 
                     ArrayList<Ranking> rankingList;
                     rankingList = new ArrayList<>();
-                    rankingList.add(new Ranking(1, 10, "Mamãe Beth", R.drawable.group_27));
-                    rankingList.add(new Ranking(1, 9,  "Mamãe Bernadete", R.drawable.group_28));
-                    rankingList.add(new Ranking(1, 8,  "Mamãe Maria", R.drawable.group_29));
-                    rankingList.add(new Ranking(1, 7,  "Mamãe Nazarela", R.drawable.group_30));
-                    rankingList.add(new Ranking(1, 6,  "Mamãe Antonia", R.drawable.group_31));
-                    rankingList.add(new Ranking(1, 5,  "Mamãe Mariana", R.drawable.group_32));
-                    rankingList.add(new Ranking(1, 4,  "Mamãe Jessica", R.drawable.group_33));
-                    rankingList.add(new Ranking(1, 3,  "Mamãe Ana", R.drawable.group_34));
-                    rankingList.add(new Ranking(1, 2,  "Mamãe Lucia", R.drawable.group_35));
-                    rankingList.add(new Ranking(1, 1,  "Mamãe Fatima", R.drawable.group_35));
+                    rankingList.add(new Ranking(1, 1,  "Mamãe Fatima", R.drawable.group_27));
+                    rankingList.add(new Ranking(1, 2,  "Mamãe Lucia", R.drawable.group_28));
+                    rankingList.add(new Ranking(1, 3,  "Mamãe Ana", R.drawable.group_29));
+                    rankingList.add(new Ranking(1, 4,  "Mamãe Jessica", R.drawable.group_30));
+                    rankingList.add(new Ranking(1, 5,  "Mamãe Mariana", R.drawable.group_31));
+                    rankingList.add(new Ranking(1, 6,  "Mamãe Antonia", R.drawable.group_32));
+                    rankingList.add(new Ranking(1, 7,  "Mamãe Nazarela", R.drawable.group_33));
+                    rankingList.add(new Ranking(1, 8,  "Mamãe Maria", R.drawable.group_34));
+                    rankingList.add(new Ranking(1, 9,  "Mamãe Bernadete", R.drawable.group_35));
+                    rankingList.add(new Ranking(1, 10, "Mamãe Beth", R.drawable.group_35));
 
                     RankingCustomAdapter rankingCustomAdapter;
                     rankingCustomAdapter = new RankingCustomAdapter(rankingList, getContext());
@@ -276,9 +276,9 @@ public class MainActivity extends AppCompatActivity
                 case 0:
                     return "MENU";
                 case 1:
-                    return "FOTOS";
+                    return "MOMENTOS";
                 case 2:
-                    return "RANKING";
+                    return "SUPER MÃES";
             }
             return null;
         }
